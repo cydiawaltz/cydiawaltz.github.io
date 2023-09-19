@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Checker</title>
+</head>
+<body>
+    <h1>Update Checker</h1>
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        // POSTリクエストが送信された場合
+        $updateCheck = $_POST["checkupdate1.0"];
+        if ($updateCheck === "checkupdate1.0") {
+            // "checkupdate1.0" が受信された場合
+            echo "<p>お使いのアプリバージョンは最新です。</p>";
+        } else {
+            // それ以外の受信の場合
+            echo "<p>更新が利用可能です。</p>";
+        }
+    }
+    ?>
+</body>
+</html>
