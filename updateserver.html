@@ -6,15 +6,15 @@
 <body>
     <h1>Update Checker</h1>
     <?php
-    if ($_SERVER["REQUEST_METHOD"] === "POST") {
-        // POSTリクエストが送信された場合
-        $updateCheck = $_POST["checkupdate1.0"];
-        if ($updateCheck === "checkupdate1.0") {
-            // "checkupdate1.0" が受信された場合
-            echo "<p>お使いのアプリバージョンは最新です。</p>";
+    if ($_SERVER["REQUEST_METHOD"] === "GET") {
+        // GETリクエストが送信された場合
+        $updateFolderPath = "./Asetts/updatev1.0.txt"; // チェックするフォルダのパス
+        if (file_exists($updateFolderPath)) {
+            // フォルダが存在する場合
+            echo "<p>アップデートが利用可能です。</p>";
         } else {
-            // それ以外の受信の場合
-            echo "<p>更新が利用可能です。</p>";
+            // フォルダが存在しない場合
+            echo "<p>お使いのバージョンは最新です。</p>";
         }
     }
     ?>
